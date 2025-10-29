@@ -130,6 +130,14 @@ const Index = () => {
                 image: 'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/c4c909f8-626f-4bf8-a2d4-4b89ba5e849f.jpg',
               },
               {
+                title: 'Семейный Стандарт',
+                price: '6 500 ₽',
+                description: 'Удобный номер для семьи с детьми',
+                features: ['1 двуспальная кровать', '2 односпальные кровати', 'Wi-Fi', 'Завтрак включен', 'Кондиционер'],
+                capacity: '4 гостя',
+                image: 'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/5465f631-8a2c-4c64-aa88-be30de486f5e.jpg',
+              },
+              {
                 title: 'Семейный',
                 price: '7 500 ₽',
                 description: 'Просторный номер для всей семьи',
@@ -244,6 +252,7 @@ const Index = () => {
                       <SelectContent>
                         <SelectItem value="standard">Стандарт (2 гостя)</SelectItem>
                         <SelectItem value="comfort">Комфорт (2 гостя)</SelectItem>
+                        <SelectItem value="family-standard">Семейный Стандарт (4 гостя)</SelectItem>
                         <SelectItem value="family">Семейный (4 гостя)</SelectItem>
                         <SelectItem value="lux">Люкс (2 гостя)</SelectItem>
                         <SelectItem value="family-lux">Семейный Люкс (4 гостя)</SelectItem>
