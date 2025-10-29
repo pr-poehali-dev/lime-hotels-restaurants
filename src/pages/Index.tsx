@@ -119,6 +119,7 @@ const Index = () => {
                 description: 'Уютный номер с видом на город',
                 features: ['Двуспальная кровать', 'Wi-Fi', 'Завтрак включен', 'Кондиционер'],
                 capacity: '2 гостя',
+                image: 'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/de6486ae-3846-4cfb-9b04-6e28150f5dd2.jpg',
               },
               {
                 title: 'Комфорт',
@@ -126,6 +127,7 @@ const Index = () => {
                 description: 'Просторный номер повышенной комфортности',
                 features: ['Кровать king-size', 'Wi-Fi', 'Завтрак включен', 'Мини-бар', 'Балкон'],
                 capacity: '2 гостя',
+                image: 'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/c4c909f8-626f-4bf8-a2d4-4b89ba5e849f.jpg',
               },
               {
                 title: 'Семейный',
@@ -133,6 +135,7 @@ const Index = () => {
                 description: 'Просторный номер для всей семьи',
                 features: ['2 двуспальные кровати', 'Wi-Fi', 'Завтрак включен', 'Мини-бар', 'Диван', 'Гостиная зона'],
                 capacity: '4 гостя',
+                image: 'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/3b0921f2-7651-4593-a209-5e635e549219.jpg',
               },
               {
                 title: 'Люкс',
@@ -140,6 +143,7 @@ const Index = () => {
                 description: 'Премиальный номер с панорамным видом',
                 features: ['Кровать king-size', 'Wi-Fi', 'Завтрак включен', 'Мини-бар', 'Джакузи', 'Гостиная зона'],
                 capacity: '2 гостя',
+                image: 'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/e20cc3b9-fcb3-4c1a-9469-11c2ddb14702.jpg',
               },
               {
                 title: 'Семейный Люкс',
@@ -147,6 +151,7 @@ const Index = () => {
                 description: 'Премиальный семейный номер с двумя спальнями',
                 features: ['2 кровати king-size', 'Wi-Fi', 'Завтрак включен', 'Кухня', 'Мини-бар', '2 ванные комнаты', 'Большая гостиная'],
                 capacity: '4 гостя',
+                image: 'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/025a50b7-7ef3-4fda-b6cd-d94563cfd1cd.jpg',
               },
               {
                 title: 'Апартаменты',
@@ -154,11 +159,12 @@ const Index = () => {
                 description: 'Роскошные апартаменты для большой семьи',
                 features: ['3 спальни', 'Wi-Fi', 'Завтрак включен', 'Полноценная кухня', 'Мини-бар', '2 ванные комнаты', 'Гостиная', 'Балкон'],
                 capacity: '6 гостей',
+                image: 'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/3f2aab7f-5a3f-4a78-8620-d26283acd92f.jpg',
               },
             ].map((room, index) => (
               <Card key={index} className="overflow-hidden hover:shadow-xl transition-all duration-300 animate-scale-in">
                 <img
-                  src="https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/5f1ef623-aa6b-4fe8-8949-40affa71d90a.jpg"
+                  src={room.image}
                   alt={room.title}
                   className="w-full h-48 object-cover"
                 />
