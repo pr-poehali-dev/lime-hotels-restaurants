@@ -468,72 +468,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="reviews" className="py-16 px-4">
-        <div className="container mx-auto">
-          <div className="text-center mb-12 animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Отзывы гостей</h2>
-            <p className="text-lg text-muted-foreground">Что говорят наши посетители</p>
-          </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                name: 'Анна Соколова',
-                date: 'Октябрь 2024',
-                rating: 5,
-                text: 'Провели выходные в отеле LIME — впечатления только положительные! Номер был чистым, современным, с красивым видом. Особенно понравился ресторан — кухня отличная, а персонал очень внимательный.',
-              },
-              {
-                name: 'Дмитрий Петров',
-                date: 'Сентябрь 2024',
-                rating: 5,
-                text: 'Отличный отель для семейного отдыха! Остановились в семейном номере с детьми — всё продумано до мелочей. Бассейн, детская зона, вкусные завтраки. Дети в восторге, обязательно вернёмся!',
-              },
-              {
-                name: 'Елена Васильева',
-                date: 'Октябрь 2024',
-                rating: 5,
-                text: 'Останавливалась в президентском номере по работе — это нечто! Панорамные окна, роскошная ванная, терраса. Консьерж помог организовать все встречи. Сервис на высшем уровне!',
-              },
-              {
-                name: 'Михаил Иванов',
-                date: 'Август 2024',
-                rating: 5,
-                text: 'Прекрасное расположение и отличный сервис. Номер комфорт полностью оправдал ожидания — просторный, чистый, с балконом. Wi-Fi работает отлично, что важно для работы. Рекомендую!',
-              },
-              {
-                name: 'Ольга Смирнова',
-                date: 'Сентябрь 2024',
-                rating: 5,
-                text: 'Отмечали годовщину свадьбы в номере люкс — романтично и красиво! Джакузи, свечи, шампанское от отеля в подарок. Персонал очень внимательный. Спасибо за незабываемый вечер!',
-              },
-              {
-                name: 'Сергей Новиков',
-                date: 'Октябрь 2024',
-                rating: 5,
-                text: 'Приезжал в командировку. Удобная парковка, хороший бизнес-центр, в номере всё необходимое. Ресторан Chili Lime просто огонь — обязательно попробуйте их стейки!',
-              },
-            ].map((review, index) => (
-              <Card key={index} className="hover:shadow-xl transition-all duration-300 animate-scale-in">
-                <CardHeader>
-                  <div className="flex items-start justify-between mb-2">
-                    <div>
-                      <CardTitle className="text-xl">{review.name}</CardTitle>
-                      <p className="text-sm text-muted-foreground">{review.date}</p>
-                    </div>
-                    <div className="flex gap-1">
-                      {Array.from({ length: review.rating }).map((_, i) => (
-                        <Icon key={i} name="Star" className="w-4 h-4 fill-primary text-primary" />
-                      ))}
-                    </div>
-                  </div>
-                  <CardDescription className="text-base leading-relaxed">{review.text}</CardDescription>
-                </CardHeader>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
 
       <section id="contact" className="py-16 px-4 bg-muted/30">
         <div className="container mx-auto max-w-4xl">
