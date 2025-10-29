@@ -279,6 +279,76 @@ const Index = () => {
         </div>
       </section>
 
+      <section id="services" className="py-16 px-4 bg-muted/30">
+        <div className="container mx-auto">
+          <div className="text-center mb-12 animate-fade-in">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Услуги отеля</h2>
+            <p className="text-lg text-muted-foreground">Всё для вашего комфорта и отдыха</p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                icon: 'Waves',
+                title: 'SPA & Wellness',
+                description: 'Спа-центр с сауной, хаммамом, массажными кабинетами и крытым бассейном',
+                features: ['Массаж', 'Сауна', 'Хаммам', 'Бассейн', 'Фитнес-зал'],
+              },
+              {
+                icon: 'UtensilsCrossed',
+                title: 'Ресторан',
+                description: 'Ресторан европейской и азиатской кухни с панорамным видом',
+                features: ['Завтрак шведский стол', 'A la carte меню', 'Бар', 'Room service 24/7'],
+              },
+              {
+                icon: 'Car',
+                title: 'Парковка',
+                description: 'Охраняемая подземная парковка для гостей отеля',
+                features: ['Видеонаблюдение', '150 мест', 'Зарядка электрокаров', 'Бесплатно для гостей'],
+              },
+              {
+                icon: 'Wifi',
+                title: 'Интернет',
+                description: 'Высокоскоростной Wi-Fi во всех номерах и общественных зонах',
+                features: ['100 Мбит/с', 'Бесплатно', 'Покрытие 100%', 'Техподдержка 24/7'],
+              },
+              {
+                icon: 'Briefcase',
+                title: 'Бизнес-центр',
+                description: 'Конференц-залы и переговорные для деловых встреч',
+                features: ['3 конференц-зала', 'Оборудование', 'Кейтеринг', 'Техподдержка'],
+              },
+              {
+                icon: 'Users',
+                title: 'Консьерж-сервис',
+                description: 'Персональная помощь в организации вашего отдыха',
+                features: ['Трансфер', 'Экскурсии', 'Бронирование', 'Круглосуточно'],
+              },
+            ].map((service, index) => (
+              <Card key={index} className="hover:shadow-xl transition-all duration-300 animate-scale-in">
+                <CardHeader>
+                  <div className="mb-4 w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
+                    <Icon name={service.icon} className="w-8 h-8 text-primary" />
+                  </div>
+                  <CardTitle className="text-2xl mb-2">{service.title}</CardTitle>
+                  <CardDescription className="text-base">{service.description}</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-2">
+                    {service.features.map((feature, i) => (
+                      <li key={i} className="flex items-center text-sm">
+                        <Icon name="Check" className="w-4 h-4 mr-2 text-primary" />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section id="restaurants" className="py-16 px-4">
         <div className="container mx-auto">
           <div className="text-center mb-12 animate-fade-in">
