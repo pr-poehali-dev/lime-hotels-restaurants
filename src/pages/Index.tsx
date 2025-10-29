@@ -118,18 +118,42 @@ const Index = () => {
                 price: '3 500 ₽',
                 description: 'Уютный номер с видом на город',
                 features: ['Двуспальная кровать', 'Wi-Fi', 'Завтрак включен', 'Кондиционер'],
+                capacity: '2 гостя',
               },
               {
                 title: 'Комфорт',
                 price: '5 500 ₽',
                 description: 'Просторный номер повышенной комфортности',
                 features: ['Кровать king-size', 'Wi-Fi', 'Завтрак включен', 'Мини-бар', 'Балкон'],
+                capacity: '2 гостя',
+              },
+              {
+                title: 'Семейный',
+                price: '7 500 ₽',
+                description: 'Просторный номер для всей семьи',
+                features: ['2 двуспальные кровати', 'Wi-Fi', 'Завтрак включен', 'Мини-бар', 'Диван', 'Гостиная зона'],
+                capacity: '4 гостя',
               },
               {
                 title: 'Люкс',
                 price: '8 500 ₽',
                 description: 'Премиальный номер с панорамным видом',
                 features: ['Кровать king-size', 'Wi-Fi', 'Завтрак включен', 'Мини-бар', 'Джакузи', 'Гостиная зона'],
+                capacity: '2 гостя',
+              },
+              {
+                title: 'Семейный Люкс',
+                price: '12 500 ₽',
+                description: 'Премиальный семейный номер с двумя спальнями',
+                features: ['2 кровати king-size', 'Wi-Fi', 'Завтрак включен', 'Кухня', 'Мини-бар', '2 ванные комнаты', 'Большая гостиная'],
+                capacity: '4 гостя',
+              },
+              {
+                title: 'Апартаменты',
+                price: '15 000 ₽',
+                description: 'Роскошные апартаменты для большой семьи',
+                features: ['3 спальни', 'Wi-Fi', 'Завтрак включен', 'Полноценная кухня', 'Мини-бар', '2 ванные комнаты', 'Гостиная', 'Балкон'],
+                capacity: '6 гостей',
               },
             ].map((room, index) => (
               <Card key={index} className="overflow-hidden hover:shadow-xl transition-all duration-300 animate-scale-in">
@@ -144,6 +168,10 @@ const Index = () => {
                     <span className="text-2xl font-bold text-primary">{room.price}</span>
                   </div>
                   <CardDescription>{room.description}</CardDescription>
+                  <div className="flex items-center text-sm text-muted-foreground mt-2">
+                    <Icon name="Users" className="w-4 h-4 mr-1" />
+                    {room.capacity}
+                  </div>
                 </CardHeader>
                 <CardContent>
                   <ul className="space-y-2 mb-4">
@@ -208,9 +236,12 @@ const Index = () => {
                         <SelectValue placeholder="Выберите номер" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="standard">Стандарт</SelectItem>
-                        <SelectItem value="comfort">Комфорт</SelectItem>
-                        <SelectItem value="lux">Люкс</SelectItem>
+                        <SelectItem value="standard">Стандарт (2 гостя)</SelectItem>
+                        <SelectItem value="comfort">Комфорт (2 гостя)</SelectItem>
+                        <SelectItem value="family">Семейный (4 гостя)</SelectItem>
+                        <SelectItem value="lux">Люкс (2 гостя)</SelectItem>
+                        <SelectItem value="family-lux">Семейный Люкс (4 гостя)</SelectItem>
+                        <SelectItem value="apartment">Апартаменты (6 гостей)</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
