@@ -7,21 +7,35 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Calendar } from '@/components/ui/calendar';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { useToast } from '@/hooks/use-toast';
 import { format } from 'date-fns';
 import { ru } from 'date-fns/locale';
 import Icon from '@/components/ui/icon';
 
+interface Room {
+  title: string;
+  price: string;
+  description: string;
+  features: string[];
+  capacity: string;
+  image: string;
+  gallery: string[];
+}
+
 const Index = () => {
   const [date, setDate] = useState<Date>();
   const { toast } = useToast();
   const [activeSection, setActiveSection] = useState('hero');
+  const [selectedRoom, setSelectedRoom] = useState<Room | null>(null);
+  const [bookingDate, setBookingDate] = useState<Date>();
 
   const handleBooking = (type: 'hotel' | 'restaurant') => {
     toast({
       title: 'Бронирование отправлено',
       description: `Мы свяжемся с вами в ближайшее время для подтверждения ${type === 'hotel' ? 'номера' : 'столика'}.`,
     });
+    setSelectedRoom(null);
   };
 
   const scrollToSection = (sectionId: string) => {
@@ -126,6 +140,11 @@ const Index = () => {
                 features: ['Двуспальная кровать', 'Wi-Fi', 'Завтрак включен', 'Кондиционер'],
                 capacity: '2 гостя',
                 image: 'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/de6486ae-3846-4cfb-9b04-6e28150f5dd2.jpg',
+                gallery: [
+                  'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/de6486ae-3846-4cfb-9b04-6e28150f5dd2.jpg',
+                  'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/e7b91b19-0723-426a-871b-3a1cd66c953d.jpg',
+                  'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/ce202ec6-8158-4171-95e0-96bcbe7acb85.jpg',
+                ],
               },
               {
                 title: 'Комфорт',
@@ -134,6 +153,11 @@ const Index = () => {
                 features: ['Кровать king-size', 'Wi-Fi', 'Завтрак включен', 'Мини-бар', 'Балкон'],
                 capacity: '2 гостя',
                 image: 'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/c4c909f8-626f-4bf8-a2d4-4b89ba5e849f.jpg',
+                gallery: [
+                  'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/c4c909f8-626f-4bf8-a2d4-4b89ba5e849f.jpg',
+                  'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/d79f4c25-e48c-48fa-a887-e0c1325e3dd4.jpg',
+                  'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/4fb88e9e-13a7-4315-94ec-5625e58b6cc9.jpg',
+                ],
               },
               {
                 title: 'Семейный Стандарт',
@@ -142,6 +166,7 @@ const Index = () => {
                 features: ['1 двуспальная кровать', '2 односпальные кровати', 'Wi-Fi', 'Завтрак включен', 'Кондиционер'],
                 capacity: '4 гостя',
                 image: 'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/5465f631-8a2c-4c64-aa88-be30de486f5e.jpg',
+                gallery: ['https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/5465f631-8a2c-4c64-aa88-be30de486f5e.jpg'],
               },
               {
                 title: 'Семейный',
@@ -150,6 +175,7 @@ const Index = () => {
                 features: ['2 двуспальные кровати', 'Wi-Fi', 'Завтрак включен', 'Мини-бар', 'Диван', 'Гостиная зона'],
                 capacity: '4 гостя',
                 image: 'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/3b0921f2-7651-4593-a209-5e635e549219.jpg',
+                gallery: ['https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/3b0921f2-7651-4593-a209-5e635e549219.jpg'],
               },
               {
                 title: 'Люкс',
@@ -158,6 +184,7 @@ const Index = () => {
                 features: ['Кровать king-size', 'Wi-Fi', 'Завтрак включен', 'Мини-бар', 'Джакузи', 'Гостиная зона'],
                 capacity: '2 гостя',
                 image: 'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/e20cc3b9-fcb3-4c1a-9469-11c2ddb14702.jpg',
+                gallery: ['https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/e20cc3b9-fcb3-4c1a-9469-11c2ddb14702.jpg'],
               },
               {
                 title: 'Семейный Люкс',
@@ -166,6 +193,7 @@ const Index = () => {
                 features: ['2 кровати king-size', 'Wi-Fi', 'Завтрак включен', 'Кухня', 'Мини-бар', '2 ванные комнаты', 'Большая гостиная'],
                 capacity: '4 гостя',
                 image: 'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/025a50b7-7ef3-4fda-b6cd-d94563cfd1cd.jpg',
+                gallery: ['https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/025a50b7-7ef3-4fda-b6cd-d94563cfd1cd.jpg'],
               },
               {
                 title: 'Апартаменты',
@@ -174,6 +202,7 @@ const Index = () => {
                 features: ['3 спальни', 'Wi-Fi', 'Завтрак включен', 'Полноценная кухня', 'Мини-бар', '2 ванные комнаты', 'Гостиная', 'Балкон'],
                 capacity: '6 гостей',
                 image: 'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/3f2aab7f-5a3f-4a78-8620-d26283acd92f.jpg',
+                gallery: ['https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/3f2aab7f-5a3f-4a78-8620-d26283acd92f.jpg'],
               },
               {
                 title: 'Президентский',
@@ -182,9 +211,10 @@ const Index = () => {
                 features: ['Кровать king-size', 'Панорамные окна', 'Отдельная гостиная', 'Мраморная ванная', 'Джакузи', 'Сауна', 'Кухня', 'Бар', 'Терраса', 'Консьерж-сервис 24/7'],
                 capacity: '2 гостя',
                 image: 'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/7d4ea4ea-7543-4c98-897c-c704e60fa739.jpg',
+                gallery: ['https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/7d4ea4ea-7543-4c98-897c-c704e60fa739.jpg'],
               },
             ].map((room, index) => (
-              <Card key={index} className="overflow-hidden hover:shadow-xl transition-all duration-300 animate-scale-in">
+              <Card key={index} className="overflow-hidden hover:shadow-xl transition-all duration-300 animate-scale-in cursor-pointer" onClick={() => setSelectedRoom(room)}>
                 <img
                   src={room.image}
                   alt={room.title}
@@ -214,6 +244,114 @@ const Index = () => {
               </Card>
             ))}
           </div>
+
+          <Dialog open={!!selectedRoom} onOpenChange={() => setSelectedRoom(null)}>
+            <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+              {selectedRoom && (
+                <>
+                  <DialogHeader>
+                    <DialogTitle className="text-3xl">{selectedRoom.title}</DialogTitle>
+                  </DialogHeader>
+                  
+                  <div className="space-y-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      {selectedRoom.gallery.map((img, idx) => (
+                        <img
+                          key={idx}
+                          src={img}
+                          alt={`${selectedRoom.title} ${idx + 1}`}
+                          className="w-full h-64 object-cover rounded-lg"
+                        />
+                      ))}
+                    </div>
+
+                    <div className="flex justify-between items-center">
+                      <div>
+                        <p className="text-muted-foreground">{selectedRoom.description}</p>
+                        <div className="flex items-center text-sm text-muted-foreground mt-2">
+                          <Icon name="Users" className="w-4 h-4 mr-1" />
+                          {selectedRoom.capacity}
+                        </div>
+                      </div>
+                      <span className="text-3xl font-bold text-primary">{selectedRoom.price}</span>
+                    </div>
+
+                    <div>
+                      <h3 className="font-semibold mb-3">Удобства:</h3>
+                      <ul className="grid grid-cols-2 gap-2">
+                        {selectedRoom.features.map((feature, i) => (
+                          <li key={i} className="flex items-center text-sm">
+                            <Icon name="Check" className="w-4 h-4 mr-2 text-primary" />
+                            {feature}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div className="border-t pt-6">
+                      <h3 className="font-semibold mb-4">Забронировать номер</h3>
+                      <form
+                        onSubmit={(e) => {
+                          e.preventDefault();
+                          handleBooking('hotel');
+                        }}
+                        className="space-y-4"
+                      >
+                        <div className="grid md:grid-cols-2 gap-4">
+                          <div className="space-y-2">
+                            <Label htmlFor="modal-name">Имя</Label>
+                            <Input id="modal-name" placeholder="Ваше имя" required />
+                          </div>
+                          <div className="space-y-2">
+                            <Label htmlFor="modal-phone">Телефон</Label>
+                            <Input id="modal-phone" type="tel" placeholder="+7 (___) ___-__-__" required />
+                          </div>
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="modal-email">Email</Label>
+                          <Input id="modal-email" type="email" placeholder="your@email.com" required />
+                        </div>
+                        <div className="grid md:grid-cols-2 gap-4">
+                          <div className="space-y-2">
+                            <Label>Дата заезда</Label>
+                            <Popover>
+                              <PopoverTrigger asChild>
+                                <Button variant="outline" className="w-full justify-start text-left font-normal">
+                                  <Icon name="CalendarIcon" className="mr-2 h-4 w-4" />
+                                  {bookingDate ? format(bookingDate, 'PPP', { locale: ru }) : 'Выберите дату'}
+                                </Button>
+                              </PopoverTrigger>
+                              <PopoverContent className="w-auto p-0">
+                                <Calendar mode="single" selected={bookingDate} onSelect={setBookingDate} initialFocus />
+                              </PopoverContent>
+                            </Popover>
+                          </div>
+                          <div className="space-y-2">
+                            <Label htmlFor="modal-nights">Количество ночей</Label>
+                            <Select required>
+                              <SelectTrigger id="modal-nights">
+                                <SelectValue placeholder="Выберите" />
+                              </SelectTrigger>
+                              <SelectContent>
+                                {[1, 2, 3, 4, 5, 6, 7, 10, 14].map((num) => (
+                                  <SelectItem key={num} value={num.toString()}>
+                                    {num} {num === 1 ? 'ночь' : num < 5 ? 'ночи' : 'ночей'}
+                                  </SelectItem>
+                                ))}
+                              </SelectContent>
+                            </Select>
+                          </div>
+                        </div>
+                        <Button type="submit" className="w-full" size="lg">
+                          Забронировать {selectedRoom.title}
+                        </Button>
+                      </form>
+                    </div>
+                  </div>
+                </>
+              )}
+            </DialogContent>
+          </Dialog>
 
           <Card className="max-w-2xl mx-auto">
             <CardHeader>
