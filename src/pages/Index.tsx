@@ -184,7 +184,11 @@ const Index = () => {
                 features: ['2 двуспальные кровати', 'Wi-Fi', 'Завтрак включен', 'Мини-бар', 'Диван', 'Гостиная зона'],
                 capacity: '4 гостя',
                 image: 'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/3b0921f2-7651-4593-a209-5e635e549219.jpg',
-                gallery: ['https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/3b0921f2-7651-4593-a209-5e635e549219.jpg'],
+                gallery: [
+                  'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/3b0921f2-7651-4593-a209-5e635e549219.jpg',
+                  'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/dcf5180f-af5b-4321-9436-84cf1611d9cf.jpg',
+                  'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/b9f4b14b-06b6-4bba-a89c-2aeee67cd28d.jpg'
+                ],
               },
               {
                 title: 'Люкс',
@@ -193,7 +197,12 @@ const Index = () => {
                 features: ['Кровать king-size', 'Wi-Fi', 'Завтрак включен', 'Мини-бар', 'Джакузи', 'Гостиная зона'],
                 capacity: '2 гостя',
                 image: 'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/e20cc3b9-fcb3-4c1a-9469-11c2ddb14702.jpg',
-                gallery: ['https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/e20cc3b9-fcb3-4c1a-9469-11c2ddb14702.jpg'],
+                gallery: [
+                  'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/e20cc3b9-fcb3-4c1a-9469-11c2ddb14702.jpg',
+                  'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/58b74833-9086-47a7-974a-3142815b2b29.jpg',
+                  'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/b9f4b14b-06b6-4bba-a89c-2aeee67cd28d.jpg',
+                  'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/e7ed255b-2bc1-425e-853b-dbe70fd3d8a1.jpg'
+                ],
               },
               {
                 title: 'Семейный Люкс',
@@ -202,7 +211,12 @@ const Index = () => {
                 features: ['2 кровати king-size', 'Wi-Fi', 'Завтрак включен', 'Кухня', 'Мини-бар', '2 ванные комнаты', 'Большая гостиная'],
                 capacity: '4 гостя',
                 image: 'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/025a50b7-7ef3-4fda-b6cd-d94563cfd1cd.jpg',
-                gallery: ['https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/025a50b7-7ef3-4fda-b6cd-d94563cfd1cd.jpg'],
+                gallery: [
+                  'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/025a50b7-7ef3-4fda-b6cd-d94563cfd1cd.jpg',
+                  'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/dcf5180f-af5b-4321-9436-84cf1611d9cf.jpg',
+                  'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/58b74833-9086-47a7-974a-3142815b2b29.jpg',
+                  'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/b9f4b14b-06b6-4bba-a89c-2aeee67cd28d.jpg'
+                ],
               },
               {
                 title: 'Апартаменты',
@@ -211,7 +225,12 @@ const Index = () => {
                 features: ['3 спальни', 'Wi-Fi', 'Завтрак включен', 'Полноценная кухня', 'Мини-бар', '2 ванные комнаты', 'Гостиная', 'Балкон'],
                 capacity: '6 гостей',
                 image: 'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/3f2aab7f-5a3f-4a78-8620-d26283acd92f.jpg',
-                gallery: ['https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/3f2aab7f-5a3f-4a78-8620-d26283acd92f.jpg'],
+                gallery: [
+                  'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/3f2aab7f-5a3f-4a78-8620-d26283acd92f.jpg',
+                  'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/dcf5180f-af5b-4321-9436-84cf1611d9cf.jpg',
+                  'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/58b74833-9086-47a7-974a-3142815b2b29.jpg',
+                  'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/e7ed255b-2bc1-425e-853b-dbe70fd3d8a1.jpg'
+                ],
               },
               {
                 title: 'Президентский',
@@ -220,7 +239,13 @@ const Index = () => {
                 features: ['Кровать king-size', 'Панорамные окна', 'Отдельная гостиная', 'Мраморная ванная', 'Джакузи', 'Сауна', 'Кухня', 'Бар', 'Терраса', 'Консьерж-сервис 24/7'],
                 capacity: '2 гостя',
                 image: 'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/7d4ea4ea-7543-4c98-897c-c704e60fa739.jpg',
-                gallery: ['https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/7d4ea4ea-7543-4c98-897c-c704e60fa739.jpg'],
+                gallery: [
+                  'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/7d4ea4ea-7543-4c98-897c-c704e60fa739.jpg',
+                  'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/127cd01a-0285-46cf-b480-777e24595432.jpg',
+                  'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/58b74833-9086-47a7-974a-3142815b2b29.jpg',
+                  'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/b9f4b14b-06b6-4bba-a89c-2aeee67cd28d.jpg',
+                  'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/e7ed255b-2bc1-425e-853b-dbe70fd3d8a1.jpg'
+                ],
               },
             ].map((room, index) => (
               <Card key={index} className="overflow-hidden hover:shadow-xl transition-all duration-300 animate-scale-in cursor-pointer" onClick={() => setSelectedRoom(room)}>
