@@ -169,6 +169,14 @@ const Index = () => {
                 capacity: '6 гостей',
                 image: 'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/3f2aab7f-5a3f-4a78-8620-d26283acd92f.jpg',
               },
+              {
+                title: 'Президентский',
+                price: '25 000 ₽',
+                description: 'Эксклюзивный президентский номер высшей категории',
+                features: ['Кровать king-size', 'Панорамные окна', 'Отдельная гостиная', 'Мраморная ванная', 'Джакузи', 'Сауна', 'Кухня', 'Бар', 'Терраса', 'Консьерж-сервис 24/7'],
+                capacity: '2 гостя',
+                image: 'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/7d4ea4ea-7543-4c98-897c-c704e60fa739.jpg',
+              },
             ].map((room, index) => (
               <Card key={index} className="overflow-hidden hover:shadow-xl transition-all duration-300 animate-scale-in">
                 <img
@@ -257,6 +265,7 @@ const Index = () => {
                         <SelectItem value="lux">Люкс (2 гостя)</SelectItem>
                         <SelectItem value="family-lux">Семейный Люкс (4 гостя)</SelectItem>
                         <SelectItem value="apartment">Апартаменты (6 гостей)</SelectItem>
+                        <SelectItem value="presidential">Президентский (2 гостя)</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
