@@ -58,6 +58,12 @@ const Index = () => {
                 Гостиницы
               </button>
               <button
+                onClick={() => scrollToSection('services')}
+                className="text-sm font-medium hover:text-primary transition-colors"
+              >
+                Услуги
+              </button>
+              <button
                 onClick={() => scrollToSection('restaurants')}
                 className="text-sm font-medium hover:text-primary transition-colors"
               >
