@@ -586,7 +586,7 @@ const Index = () => {
             <p className="text-lg text-muted-foreground">Изысканная кухня с панорамным видом</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6 mb-12">
+          <div className="grid md:grid-cols-1 gap-6 mb-12">
             <Card className="overflow-hidden hover:shadow-xl transition-all cursor-pointer" onClick={() => {
               const menuSection = document.getElementById('menu');
               menuSection?.scrollIntoView({ behavior: 'smooth' });
@@ -597,43 +597,9 @@ const Index = () => {
                 className="w-full h-64 object-cover"
               />
               <CardHeader>
-                <CardTitle className="text-2xl">Атмосфера</CardTitle>
+                <CardTitle className="text-2xl">Ресторан LIME</CardTitle>
                 <CardDescription>
-                  Панорамные окна с видом на город, современный дизайн и уютная обстановка
-                </CardDescription>
-              </CardHeader>
-            </Card>
-
-            <Card className="overflow-hidden hover:shadow-xl transition-all cursor-pointer" onClick={() => {
-              const menuSection = document.getElementById('menu');
-              menuSection?.scrollIntoView({ behavior: 'smooth' });
-            }}>
-              <img
-                src="https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/57cc9624-f5cd-479a-bf2f-f8f6515901ec.jpg"
-                alt="Европейская кухня"
-                className="w-full h-64 object-cover"
-              />
-              <CardHeader>
-                <CardTitle className="text-2xl">Европейская кухня</CardTitle>
-                <CardDescription>
-                  Авторские блюда от шеф-повара, премиальные ингредиенты
-                </CardDescription>
-              </CardHeader>
-            </Card>
-
-            <Card className="overflow-hidden hover:shadow-xl transition-all cursor-pointer" onClick={() => {
-              const menuSection = document.getElementById('menu');
-              menuSection?.scrollIntoView({ behavior: 'smooth' });
-            }}>
-              <img
-                src="https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/01fa9620-a167-43c6-8f05-43231ff1c8fb.jpg"
-                alt="Азиатская кухня"
-                className="w-full h-64 object-cover"
-              />
-              <CardHeader>
-                <CardTitle className="text-2xl">Азиатская кухня</CardTitle>
-                <CardDescription>
-                  Суши, сашими и традиционные блюда азиатской кухни
+                  Панорамные окна с видом на город, современный дизайн и уютная обстановка. Разнообразное меню на любой вкус.
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -656,11 +622,26 @@ const Index = () => {
               <TabsContent value="salads" className="space-y-6">
                 <div>
                   <h4 className="text-xl font-semibold mb-4">Салаты</h4>
-                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {['Цезарь', 'Лилия', 'Морской бриз', 'Салат с сухариками', 'Оливье', 'Оливье по-дальневосточному', 'Винегрет', 'Рыба под шубой', 'Морковный салат с чесноком и сметаной', 'Греческий салат'].map((item, index) => (
+                  <div className="grid md:grid-cols-1 gap-3">
+                    {[
+                      { name: 'Цезарь', weight: '200г', price: '350 ₽' },
+                      { name: 'Лилия', weight: '180г', price: '280 ₽' },
+                      { name: 'Морской бриз', weight: '220г', price: '420 ₽' },
+                      { name: 'Салат с сухариками', weight: '150г', price: '220 ₽' },
+                      { name: 'Оливье', weight: '200г', price: '250 ₽' },
+                      { name: 'Оливье по-дальневосточному', weight: '220г', price: '320 ₽' },
+                      { name: 'Винегрет', weight: '180г', price: '200 ₽' },
+                      { name: 'Рыба под шубой', weight: '200г', price: '280 ₽' },
+                      { name: 'Морковный салат с чесноком и сметаной', weight: '150г', price: '180 ₽' },
+                      { name: 'Греческий салат', weight: '200г', price: '340 ₽' }
+                    ].map((item, index) => (
                       <Card key={index} className="hover:shadow-lg transition-all">
-                        <CardHeader className="pb-3">
-                          <CardTitle className="text-lg">{item}</CardTitle>
+                        <CardHeader className="pb-3 flex flex-row items-center justify-between">
+                          <div className="flex-1">
+                            <CardTitle className="text-base">{item.name}</CardTitle>
+                            <p className="text-sm text-muted-foreground mt-1">{item.weight}</p>
+                          </div>
+                          <span className="text-lg font-semibold text-primary">{item.price}</span>
                         </CardHeader>
                       </Card>
                     ))}
@@ -668,11 +649,19 @@ const Index = () => {
                 </div>
                 <div>
                   <h4 className="text-xl font-semibold mb-4">Салаты диетические</h4>
-                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {['Ассорти', 'Для милых дам', 'Салат с сельдью'].map((item, index) => (
+                  <div className="grid md:grid-cols-1 gap-3">
+                    {[
+                      { name: 'Ассорти', weight: '180г', price: '320 ₽' },
+                      { name: 'Для милых дам', weight: '160г', price: '280 ₽' },
+                      { name: 'Салат с сельдью', weight: '200г', price: '260 ₽' }
+                    ].map((item, index) => (
                       <Card key={index} className="hover:shadow-lg transition-all">
-                        <CardHeader className="pb-3">
-                          <CardTitle className="text-lg">{item}</CardTitle>
+                        <CardHeader className="pb-3 flex flex-row items-center justify-between">
+                          <div className="flex-1">
+                            <CardTitle className="text-base">{item.name}</CardTitle>
+                            <p className="text-sm text-muted-foreground mt-1">{item.weight}</p>
+                          </div>
+                          <span className="text-lg font-semibold text-primary">{item.price}</span>
                         </CardHeader>
                       </Card>
                     ))}
@@ -682,11 +671,27 @@ const Index = () => {
 
               <TabsContent value="soups" className="space-y-4">
                 <h4 className="text-xl font-semibold mb-4">Супы</h4>
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {['Свекольник', 'Щи', 'Рассольник', 'Рассольник с клецками', 'Дачный', 'Уха', 'Уха двойная', 'Грибной суп', 'Холодный лимонный суп', 'Куриный суп с лапшой', 'Овощной суп пюре'].map((item, index) => (
+                <div className="grid md:grid-cols-1 gap-3">
+                  {[
+                    { name: 'Свекольник', weight: '300мл', price: '200 ₽' },
+                    { name: 'Щи', weight: '300мл', price: '220 ₽' },
+                    { name: 'Рассольник', weight: '300мл', price: '240 ₽' },
+                    { name: 'Рассольник с клецками', weight: '350мл', price: '280 ₽' },
+                    { name: 'Дачный', weight: '300мл', price: '210 ₽' },
+                    { name: 'Уха', weight: '300мл', price: '320 ₽' },
+                    { name: 'Уха двойная', weight: '350мл', price: '420 ₽' },
+                    { name: 'Грибной суп', weight: '300мл', price: '260 ₽' },
+                    { name: 'Холодный лимонный суп', weight: '250мл', price: '240 ₽' },
+                    { name: 'Куриный суп с лапшой', weight: '300мл', price: '230 ₽' },
+                    { name: 'Овощной суп пюре', weight: '300мл', price: '250 ₽' }
+                  ].map((item, index) => (
                     <Card key={index} className="hover:shadow-lg transition-all">
-                      <CardHeader className="pb-3">
-                        <CardTitle className="text-lg">{item}</CardTitle>
+                      <CardHeader className="pb-3 flex flex-row items-center justify-between">
+                        <div className="flex-1">
+                          <CardTitle className="text-base">{item.name}</CardTitle>
+                          <p className="text-sm text-muted-foreground mt-1">{item.weight}</p>
+                        </div>
+                        <span className="text-lg font-semibold text-primary">{item.price}</span>
                       </CardHeader>
                     </Card>
                   ))}
@@ -695,11 +700,32 @@ const Index = () => {
 
               <TabsContent value="appetizers" className="space-y-4">
                 <h4 className="text-xl font-semibold mb-4">Закуски</h4>
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {['Крымская', 'Заливной судак', 'Рулет из лаваша', 'Сëмга отварная с гарниром', 'Мировая', 'Буженина', 'Утка по-пекински', 'Курица жареная', 'Пицца из кабачков', 'Пицца "Палермо"', 'Мини-пиццы с ветчиной', 'Омлет', 'Глазунья', 'Уяча', 'Брускетта с помидорами черри и базиликом', 'Малосольные огурцы с укропом'].map((item, index) => (
+                <div className="grid grid-cols-1 gap-4">
+                  {[
+                    { name: 'Крымская', weight: '350г', price: '480 ₽' },
+                    { name: 'Заливной судак', weight: '300г', price: '520 ₽' },
+                    { name: 'Рулет из лаваша', weight: '250г', price: '340 ₽' },
+                    { name: 'Сëмга отварная с гарниром', weight: '400г', price: '680 ₽' },
+                    { name: 'Мировая', weight: '300г', price: '450 ₽' },
+                    { name: 'Буженина', weight: '200г', price: '380 ₽' },
+                    { name: 'Утка по-пекински', weight: '350г', price: '620 ₽' },
+                    { name: 'Курица жареная', weight: '400г', price: '490 ₽' },
+                    { name: 'Пицца из кабачков', weight: '300г', price: '320 ₽' },
+                    { name: 'Пицца "Палермо"', weight: '350г', price: '420 ₽' },
+                    { name: 'Мини-пиццы с ветчиной', weight: '250г', price: '280 ₽' },
+                    { name: 'Омлет', weight: '200г', price: '180 ₽' },
+                    { name: 'Глазунья', weight: '150г', price: '140 ₽' },
+                    { name: 'Уяча', weight: '300г', price: '360 ₽' },
+                    { name: 'Брускетта с помидорами черри и базиликом', weight: '220г', price: '290 ₽' },
+                    { name: 'Малосольные огурцы с укропом', weight: '180г', price: '220 ₽' }
+                  ].map((item, index) => (
                     <Card key={index} className="hover:shadow-lg transition-all">
-                      <CardHeader className="pb-3">
-                        <CardTitle className="text-lg">{item}</CardTitle>
+                      <CardHeader className="pb-3 flex-row items-center justify-between space-y-0">
+                        <div className="flex-1">
+                          <CardTitle className="text-base">{item.name}</CardTitle>
+                          <p className="text-sm text-muted-foreground mt-1">{item.weight}</p>
+                        </div>
+                        <span className="text-lg font-semibold text-primary">{item.price}</span>
                       </CardHeader>
                     </Card>
                   ))}
@@ -708,11 +734,29 @@ const Index = () => {
 
               <TabsContent value="mains" className="space-y-4">
                 <h4 className="text-xl font-semibold mb-4">Второе</h4>
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {['Картофельная запеканка', 'Пельмени', 'Манты', 'Шашлык', 'Спагетти', 'Макароны по-флотски', 'Макароны с сыром', 'Котлеты куриные/свиные/говяжие', 'Плов из говядины/свинины/курицы', 'Стейк из говядины/свинины', 'Говяжие рëбрышки', 'Куриная грудка со шпинатом и пармезаном', 'Мясные рулетики из свинины и говядины'].map((item, index) => (
+                <div className="grid grid-cols-1 gap-4">
+                  {[
+                    { name: 'Картофельная запеканка', weight: '300г', price: '320 ₽' },
+                    { name: 'Пельмени', weight: '250г', price: '280 ₽' },
+                    { name: 'Манты', weight: '300г', price: '340 ₽' },
+                    { name: 'Шашлык', weight: '350г', price: '680 ₽' },
+                    { name: 'Спагетти', weight: '250г', price: '290 ₽' },
+                    { name: 'Макароны по-флотски', weight: '300г', price: '310 ₽' },
+                    { name: 'Макароны с сыром', weight: '250г', price: '280 ₽' },
+                    { name: 'Котлеты куриные/свиные/говяжие', weight: '200г', price: '350 ₽' },
+                    { name: 'Плов из говядины/свинины/курицы', weight: '350г', price: '420 ₽' },
+                    { name: 'Стейк из говядины/свинины', weight: '300г', price: '620 ₽' },
+                    { name: 'Говяжие рëбрышки', weight: '350г', price: '680 ₽' },
+                    { name: 'Куриная грудка со шпинатом и пармезаном', weight: '280г', price: '480 ₽' },
+                    { name: 'Мясные рулетики из свинины и говядины', weight: '300г', price: '520 ₽' }
+                  ].map((item, index) => (
                     <Card key={index} className="hover:shadow-lg transition-all">
-                      <CardHeader className="pb-3">
-                        <CardTitle className="text-lg">{item}</CardTitle>
+                      <CardHeader className="pb-3 flex-row items-center justify-between space-y-0">
+                        <div className="flex-1">
+                          <CardTitle className="text-base">{item.name}</CardTitle>
+                          <p className="text-sm text-muted-foreground mt-1">{item.weight}</p>
+                        </div>
+                        <span className="text-lg font-semibold text-primary">{item.price}</span>
                       </CardHeader>
                     </Card>
                   ))}
@@ -721,11 +765,22 @@ const Index = () => {
 
               <TabsContent value="sides" className="space-y-4">
                 <h4 className="text-xl font-semibold mb-4">Гарниры</h4>
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {['Картофель-пюре', 'Картофель по-деревенски', 'Отварной рис', 'Гречневая каша', 'Фунчëза с овощами', 'Рагу из овощей'].map((item, index) => (
+                <div className="grid grid-cols-1 gap-4">
+                  {[
+                    { name: 'Картофель-пюре', weight: '200г', price: '120 ₽' },
+                    { name: 'Картофель по-деревенски', weight: '250г', price: '150 ₽' },
+                    { name: 'Отварной рис', weight: '200г', price: '130 ₽' },
+                    { name: 'Гречневая каша', weight: '200г', price: '140 ₽' },
+                    { name: 'Фунчëза с овощами', weight: '250г', price: '180 ₽' },
+                    { name: 'Рагу из овощей', weight: '220г', price: '160 ₽' }
+                  ].map((item, index) => (
                     <Card key={index} className="hover:shadow-lg transition-all">
-                      <CardHeader className="pb-3">
-                        <CardTitle className="text-lg">{item}</CardTitle>
+                      <CardHeader className="pb-3 flex-row items-center justify-between space-y-0">
+                        <div className="flex-1">
+                          <CardTitle className="text-base">{item.name}</CardTitle>
+                          <p className="text-sm text-muted-foreground mt-1">{item.weight}</p>
+                        </div>
+                        <span className="text-lg font-semibold text-primary">{item.price}</span>
                       </CardHeader>
                     </Card>
                   ))}
@@ -734,11 +789,35 @@ const Index = () => {
 
               <TabsContent value="desserts" className="space-y-4">
                 <h4 className="text-xl font-semibold mb-4">Десерты</h4>
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {['Ягодный', 'Клубника под снегом', 'Разноцветный', 'Розовые облака', 'Фрукты в шоколаде', 'Мороженое: клубника/шоколад/вишня/апельсин', 'Клубничное желе', 'Малиновый мусс', 'Блины', 'Ватрушки с вареньем', 'Пирог яблочный', 'Пирог вишнëвый', 'Маковый пирог', 'Заварное пирожное с вишнëвым кремом', 'Заварное пирожное', 'Пирожное "Чашка кофе"', 'Рулет "Пятиминутка"', 'Шарлотка из яблок', 'Эклеры'].map((item, index) => (
+                <div className="grid grid-cols-1 gap-4">
+                  {[
+                    { name: 'Ягодный', weight: '150г', price: '220 ₽' },
+                    { name: 'Клубника под снегом', weight: '180г', price: '250 ₽' },
+                    { name: 'Разноцветный', weight: '160г', price: '230 ₽' },
+                    { name: 'Розовые облака', weight: '140г', price: '210 ₽' },
+                    { name: 'Фрукты в шоколаде', weight: '200г', price: '280 ₽' },
+                    { name: 'Мороженое: клубника/шоколад/вишня/апельсин', weight: '120г', price: '150 ₽' },
+                    { name: 'Клубничное желе', weight: '150г', price: '180 ₽' },
+                    { name: 'Малиновый мусс', weight: '160г', price: '200 ₽' },
+                    { name: 'Блины', weight: '200г', price: '190 ₽' },
+                    { name: 'Ватрушки с вареньем', weight: '180г', price: '170 ₽' },
+                    { name: 'Пирог яблочный', weight: '150г', price: '160 ₽' },
+                    { name: 'Пирог вишнëвый', weight: '150г', price: '170 ₽' },
+                    { name: 'Маковый пирог', weight: '140г', price: '180 ₽' },
+                    { name: 'Заварное пирожное с вишнëвым кремом', weight: '120г', price: '200 ₽' },
+                    { name: 'Заварное пирожное', weight: '120г', price: '180 ₽' },
+                    { name: 'Пирожное "Чашка кофе"', weight: '130г', price: '210 ₽' },
+                    { name: 'Рулет "Пятиминутка"', weight: '160г', price: '190 ₽' },
+                    { name: 'Шарлотка из яблок', weight: '180г', price: '170 ₽' },
+                    { name: 'Эклеры', weight: '140г', price: '220 ₽' }
+                  ].map((item, index) => (
                     <Card key={index} className="hover:shadow-lg transition-all">
-                      <CardHeader className="pb-3">
-                        <CardTitle className="text-lg">{item}</CardTitle>
+                      <CardHeader className="pb-3 flex-row items-center justify-between space-y-0">
+                        <div className="flex-1">
+                          <CardTitle className="text-base">{item.name}</CardTitle>
+                          <p className="text-sm text-muted-foreground mt-1">{item.weight}</p>
+                        </div>
+                        <span className="text-lg font-semibold text-primary">{item.price}</span>
                       </CardHeader>
                     </Card>
                   ))}
@@ -747,11 +826,28 @@ const Index = () => {
 
               <TabsContent value="cakes" className="space-y-4">
                 <h4 className="text-xl font-semibold mb-4">Торты</h4>
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {['Малиновый', 'Вишнëвый творожный', 'Ананас', 'Чëрный принц', 'Наполеон', 'Седьмое небо', 'Кардинал', 'Палитра', 'Халва', 'Торт-мороженое', 'Тирамису', 'Чискейк'].map((item, index) => (
+                <div className="grid grid-cols-1 gap-4">
+                  {[
+                    { name: 'Малиновый', weight: '150г', price: '280 ₽' },
+                    { name: 'Вишнëвый творожный', weight: '150г', price: '290 ₽' },
+                    { name: 'Ананас', weight: '150г', price: '270 ₽' },
+                    { name: 'Чëрный принц', weight: '150г', price: '260 ₽' },
+                    { name: 'Наполеон', weight: '150г', price: '250 ₽' },
+                    { name: 'Седьмое небо', weight: '150г', price: '300 ₽' },
+                    { name: 'Кардинал', weight: '150г', price: '310 ₽' },
+                    { name: 'Палитра', weight: '150г', price: '290 ₽' },
+                    { name: 'Халва', weight: '150г', price: '220 ₽' },
+                    { name: 'Торт-мороженое', weight: '150г', price: '240 ₽' },
+                    { name: 'Тирамису', weight: '150г', price: '320 ₽' },
+                    { name: 'Чискейк', weight: '150г', price: '300 ₽' }
+                  ].map((item, index) => (
                     <Card key={index} className="hover:shadow-lg transition-all">
-                      <CardHeader className="pb-3">
-                        <CardTitle className="text-lg">{item}</CardTitle>
+                      <CardHeader className="pb-3 flex-row items-center justify-between space-y-0">
+                        <div className="flex-1">
+                          <CardTitle className="text-base">{item.name}</CardTitle>
+                          <p className="text-sm text-muted-foreground mt-1">{item.weight}</p>
+                        </div>
+                        <span className="text-lg font-semibold text-primary">{item.price}</span>
                       </CardHeader>
                     </Card>
                   ))}
@@ -760,11 +856,32 @@ const Index = () => {
 
               <TabsContent value="drinks" className="space-y-4">
                 <h4 className="text-xl font-semibold mb-4">Напитки</h4>
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {['Чай: чëрный/зелëный/фруктовый/малиновый/с мëдом', 'Капучино', 'Чëрный кофе', 'Латте', 'Сок: вишнëвый/апельсиновый/яблочный/мультифрукт', 'Американо', 'Кола', 'Фанта', 'Молочный коктейль', 'Спрайт', 'Вода', 'Лимонад', 'Вода минеральная/негазированная', 'Вода газированная', 'Детское шампанское', 'Шампанское'].map((item, index) => (
+                <div className="grid grid-cols-1 gap-4">
+                  {[
+                    { name: 'Чай: чëрный/зелëный/фруктовый/малиновый/с мëдом', weight: '300мл', price: '80 ₽' },
+                    { name: 'Капучино', weight: '250мл', price: '180 ₽' },
+                    { name: 'Чëрный кофе', weight: '200мл', price: '120 ₽' },
+                    { name: 'Латте', weight: '300мл', price: '200 ₽' },
+                    { name: 'Сок: вишнëвый/апельсиновый/яблочный/мультифрукт', weight: '250мл', price: '120 ₽' },
+                    { name: 'Американо', weight: '250мл', price: '150 ₽' },
+                    { name: 'Кола', weight: '330мл', price: '100 ₽' },
+                    { name: 'Фанта', weight: '330мл', price: '100 ₽' },
+                    { name: 'Молочный коктейль', weight: '300мл', price: '220 ₽' },
+                    { name: 'Спрайт', weight: '330мл', price: '100 ₽' },
+                    { name: 'Вода', weight: '500мл', price: '60 ₽' },
+                    { name: 'Лимонад', weight: '300мл', price: '140 ₽' },
+                    { name: 'Вода минеральная/негазированная', weight: '500мл', price: '80 ₽' },
+                    { name: 'Вода газированная', weight: '500мл', price: '80 ₽' },
+                    { name: 'Детское шампанское', weight: '330мл', price: '180 ₽' },
+                    { name: 'Шампанское', weight: '200мл', price: '350 ₽' }
+                  ].map((item, index) => (
                     <Card key={index} className="hover:shadow-lg transition-all">
-                      <CardHeader className="pb-3">
-                        <CardTitle className="text-lg">{item}</CardTitle>
+                      <CardHeader className="pb-3 flex-row items-center justify-between space-y-0">
+                        <div className="flex-1">
+                          <CardTitle className="text-base">{item.name}</CardTitle>
+                          <p className="text-sm text-muted-foreground mt-1">{item.weight}</p>
+                        </div>
+                        <span className="text-lg font-semibold text-primary">{item.price}</span>
                       </CardHeader>
                     </Card>
                   ))}
