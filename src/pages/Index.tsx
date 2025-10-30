@@ -641,106 +641,130 @@ const Index = () => {
 
           <div id="menu" className="mb-16">
             <h3 className="text-3xl font-bold text-center mb-8">Меню ресторана</h3>
-            <Tabs defaultValue="european" className="w-full">
-              <TabsList className="grid w-full grid-cols-2 max-w-md mx-auto mb-8">
-                <TabsTrigger value="european">Европейская кухня</TabsTrigger>
-                <TabsTrigger value="asian">Азиатская кухня</TabsTrigger>
+            <Tabs defaultValue="salads" className="w-full">
+              <TabsList className="grid w-full grid-cols-4 lg:grid-cols-8 max-w-6xl mx-auto mb-8">
+                <TabsTrigger value="salads">Салаты</TabsTrigger>
+                <TabsTrigger value="soups">Супы</TabsTrigger>
+                <TabsTrigger value="appetizers">Закуски</TabsTrigger>
+                <TabsTrigger value="mains">Второе</TabsTrigger>
+                <TabsTrigger value="sides">Гарниры</TabsTrigger>
+                <TabsTrigger value="desserts">Десерты</TabsTrigger>
+                <TabsTrigger value="cakes">Торты</TabsTrigger>
+                <TabsTrigger value="drinks">Напитки</TabsTrigger>
               </TabsList>
               
-              <TabsContent value="european" className="space-y-4">
-                <div className="grid md:grid-cols-2 gap-6">
-                  {[
-                    {
-                      name: 'Стейк Рибай',
-                      description: 'Мраморная говядина, 300г, с овощами гриль и соусом демиглас',
-                      price: '2 800 ₽',
-                      image: 'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/57cc9624-f5cd-479a-bf2f-f8f6515901ec.jpg',
-                      category: 'european'
-                    },
-                    {
-                      name: 'Филе лосося',
-                      description: 'Норвежский лосось на подушке из шпината с соусом холландез',
-                      price: '1 900 ₽',
-                      image: 'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/57cc9624-f5cd-479a-bf2f-f8f6515901ec.jpg',
-                      category: 'european'
-                    },
-                    {
-                      name: 'Равиоли с трюфелем',
-                      description: 'Домашние равиоли с рикоттой и черным трюфелем',
-                      price: '1 600 ₽',
-                      image: 'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/57cc9624-f5cd-479a-bf2f-f8f6515901ec.jpg',
-                      category: 'european'
-                    },
-                    {
-                      name: 'Тартар из говядины',
-                      description: 'Классический тартар с перепелиным яйцом и тостами',
-                      price: '1 400 ₽',
-                      image: 'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/57cc9624-f5cd-479a-bf2f-f8f6515901ec.jpg',
-                      category: 'european'
-                    },
-                  ].map((item, index) => (
-                    <Card key={index} className="overflow-hidden hover:shadow-xl transition-all cursor-pointer" onClick={() => setSelectedMenuItem(item)}>
-                      <img
-                        src={item.image}
-                        alt={item.name}
-                        className="w-full h-48 object-cover"
-                      />
-                      <CardHeader>
-                        <div className="flex justify-between items-start">
-                          <CardTitle className="text-xl">{item.name}</CardTitle>
-                          <span className="text-xl font-bold text-primary">{item.price}</span>
-                        </div>
-                        <CardDescription>{item.description}</CardDescription>
+              <TabsContent value="salads" className="space-y-6">
+                <div>
+                  <h4 className="text-xl font-semibold mb-4">Салаты</h4>
+                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {['Цезарь', 'Лилия', 'Морской бриз', 'Салат с сухариками', 'Оливье', 'Оливье по-дальневосточному', 'Винегрет', 'Рыба под шубой', 'Морковный салат с чесноком и сметаной', 'Греческий салат'].map((item, index) => (
+                      <Card key={index} className="hover:shadow-lg transition-all">
+                        <CardHeader className="pb-3">
+                          <CardTitle className="text-lg">{item}</CardTitle>
+                        </CardHeader>
+                      </Card>
+                    ))}
+                  </div>
+                </div>
+                <div>
+                  <h4 className="text-xl font-semibold mb-4">Салаты диетические</h4>
+                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {['Ассорти', 'Для милых дам', 'Салат с сельдью'].map((item, index) => (
+                      <Card key={index} className="hover:shadow-lg transition-all">
+                        <CardHeader className="pb-3">
+                          <CardTitle className="text-lg">{item}</CardTitle>
+                        </CardHeader>
+                      </Card>
+                    ))}
+                  </div>
+                </div>
+              </TabsContent>
+
+              <TabsContent value="soups" className="space-y-4">
+                <h4 className="text-xl font-semibold mb-4">Супы</h4>
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {['Свекольник', 'Щи', 'Рассольник', 'Рассольник с клецками', 'Дачный', 'Уха', 'Уха двойная', 'Грибной суп', 'Холодный лимонный суп', 'Куриный суп с лапшой', 'Овощной суп пюре'].map((item, index) => (
+                    <Card key={index} className="hover:shadow-lg transition-all">
+                      <CardHeader className="pb-3">
+                        <CardTitle className="text-lg">{item}</CardTitle>
                       </CardHeader>
                     </Card>
                   ))}
                 </div>
               </TabsContent>
 
-              <TabsContent value="asian" className="space-y-4">
-                <div className="grid md:grid-cols-2 gap-6">
-                  {[
-                    {
-                      name: 'Сет "Императорский"',
-                      description: '12 роллов, 8 нигири, 4 сашими, имбирь, васаби',
-                      price: '3 200 ₽',
-                      image: 'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/01fa9620-a167-43c6-8f05-43231ff1c8fb.jpg',
-                      category: 'asian'
-                    },
-                    {
-                      name: 'Утка по-пекински',
-                      description: 'Традиционное блюдо с блинчиками, огурцом и соусом хойсин',
-                      price: '2 400 ₽',
-                      image: 'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/01fa9620-a167-43c6-8f05-43231ff1c8fb.jpg',
-                      category: 'asian'
-                    },
-                    {
-                      name: 'Том Ям с креветками',
-                      description: 'Острый тайский суп с тигровыми креветками',
-                      price: '890 ₽',
-                      image: 'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/01fa9620-a167-43c6-8f05-43231ff1c8fb.jpg',
-                      category: 'asian'
-                    },
-                    {
-                      name: 'Вок с морепродуктами',
-                      description: 'Удон с креветками, кальмарами и мидиями в соусе терияки',
-                      price: '1 200 ₽',
-                      image: 'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/01fa9620-a167-43c6-8f05-43231ff1c8fb.jpg',
-                      category: 'asian'
-                    },
-                  ].map((item, index) => (
-                    <Card key={index} className="overflow-hidden hover:shadow-xl transition-all cursor-pointer" onClick={() => setSelectedMenuItem(item)}>
-                      <img
-                        src={item.image}
-                        alt={item.name}
-                        className="w-full h-48 object-cover"
-                      />
-                      <CardHeader>
-                        <div className="flex justify-between items-start">
-                          <CardTitle className="text-xl">{item.name}</CardTitle>
-                          <span className="text-xl font-bold text-primary">{item.price}</span>
-                        </div>
-                        <CardDescription>{item.description}</CardDescription>
+              <TabsContent value="appetizers" className="space-y-4">
+                <h4 className="text-xl font-semibold mb-4">Закуски</h4>
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {['Крымская', 'Заливной судак', 'Рулет из лаваша', 'Сëмга отварная с гарниром', 'Мировая', 'Буженина', 'Утка по-пекински', 'Курица жареная', 'Пицца из кабачков', 'Пицца "Палермо"', 'Мини-пиццы с ветчиной', 'Омлет', 'Глазунья', 'Уяча', 'Брускетта с помидорами черри и базиликом', 'Малосольные огурцы с укропом'].map((item, index) => (
+                    <Card key={index} className="hover:shadow-lg transition-all">
+                      <CardHeader className="pb-3">
+                        <CardTitle className="text-lg">{item}</CardTitle>
+                      </CardHeader>
+                    </Card>
+                  ))}
+                </div>
+              </TabsContent>
+
+              <TabsContent value="mains" className="space-y-4">
+                <h4 className="text-xl font-semibold mb-4">Второе</h4>
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {['Картофельная запеканка', 'Пельмени', 'Манты', 'Шашлык', 'Спагетти', 'Макароны по-флотски', 'Макароны с сыром', 'Котлеты куриные/свиные/говяжие', 'Плов из говядины/свинины/курицы', 'Стейк из говядины/свинины', 'Говяжие рëбрышки', 'Куриная грудка со шпинатом и пармезаном', 'Мясные рулетики из свинины и говядины'].map((item, index) => (
+                    <Card key={index} className="hover:shadow-lg transition-all">
+                      <CardHeader className="pb-3">
+                        <CardTitle className="text-lg">{item}</CardTitle>
+                      </CardHeader>
+                    </Card>
+                  ))}
+                </div>
+              </TabsContent>
+
+              <TabsContent value="sides" className="space-y-4">
+                <h4 className="text-xl font-semibold mb-4">Гарниры</h4>
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {['Картофель-пюре', 'Картофель по-деревенски', 'Отварной рис', 'Гречневая каша', 'Фунчëза с овощами', 'Рагу из овощей'].map((item, index) => (
+                    <Card key={index} className="hover:shadow-lg transition-all">
+                      <CardHeader className="pb-3">
+                        <CardTitle className="text-lg">{item}</CardTitle>
+                      </CardHeader>
+                    </Card>
+                  ))}
+                </div>
+              </TabsContent>
+
+              <TabsContent value="desserts" className="space-y-4">
+                <h4 className="text-xl font-semibold mb-4">Десерты</h4>
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {['Ягодный', 'Клубника под снегом', 'Разноцветный', 'Розовые облака', 'Фрукты в шоколаде', 'Мороженое: клубника/шоколад/вишня/апельсин', 'Клубничное желе', 'Малиновый мусс', 'Блины', 'Ватрушки с вареньем', 'Пирог яблочный', 'Пирог вишнëвый', 'Маковый пирог', 'Заварное пирожное с вишнëвым кремом', 'Заварное пирожное', 'Пирожное "Чашка кофе"', 'Рулет "Пятиминутка"', 'Шарлотка из яблок', 'Эклеры'].map((item, index) => (
+                    <Card key={index} className="hover:shadow-lg transition-all">
+                      <CardHeader className="pb-3">
+                        <CardTitle className="text-lg">{item}</CardTitle>
+                      </CardHeader>
+                    </Card>
+                  ))}
+                </div>
+              </TabsContent>
+
+              <TabsContent value="cakes" className="space-y-4">
+                <h4 className="text-xl font-semibold mb-4">Торты</h4>
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {['Малиновый', 'Вишнëвый творожный', 'Ананас', 'Чëрный принц', 'Наполеон', 'Седьмое небо', 'Кардинал', 'Палитра', 'Халва', 'Торт-мороженое', 'Тирамису', 'Чискейк'].map((item, index) => (
+                    <Card key={index} className="hover:shadow-lg transition-all">
+                      <CardHeader className="pb-3">
+                        <CardTitle className="text-lg">{item}</CardTitle>
+                      </CardHeader>
+                    </Card>
+                  ))}
+                </div>
+              </TabsContent>
+
+              <TabsContent value="drinks" className="space-y-4">
+                <h4 className="text-xl font-semibold mb-4">Напитки</h4>
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {['Чай: чëрный/зелëный/фруктовый/малиновый/с мëдом', 'Капучино', 'Чëрный кофе', 'Латте', 'Сок: вишнëвый/апельсиновый/яблочный/мультифрукт', 'Американо', 'Кола', 'Фанта', 'Молочный коктейль', 'Спрайт', 'Вода', 'Лимонад', 'Вода минеральная/негазированная', 'Вода газированная', 'Детское шампанское', 'Шампанское'].map((item, index) => (
+                    <Card key={index} className="hover:shadow-lg transition-all">
+                      <CardHeader className="pb-3">
+                        <CardTitle className="text-lg">{item}</CardTitle>
                       </CardHeader>
                     </Card>
                   ))}
