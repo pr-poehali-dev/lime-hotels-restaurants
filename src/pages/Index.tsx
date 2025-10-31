@@ -1004,7 +1004,7 @@ const Index = () => {
             <p className="text-lg text-muted-foreground">Мы всегда рады ответить на ваши вопросы</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-8 mb-8">
             <Card>
               <CardHeader className="text-center">
                 <Icon name="Phone" className="w-8 h-8 mx-auto mb-2 text-primary" />
@@ -1029,6 +1029,55 @@ const Index = () => {
               </CardHeader>
             </Card>
           </div>
+
+          <Card>
+            <CardHeader className="text-center">
+              <CardTitle className="mb-4">Мы в социальных сетях</CardTitle>
+              <div className="flex justify-center gap-6">
+                <a 
+                  href="https://vk.com/lime_chain" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex flex-col items-center gap-2 hover:text-primary transition-colors group"
+                >
+                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                    <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M15.07 2H8.93C3.33 2 2 3.33 2 8.93v6.14C2 20.67 3.33 22 8.93 22h6.14c5.6 0 6.93-1.33 6.93-6.93V8.93C22 3.33 20.67 2 15.07 2zm3.05 14.5h-1.4c-.46 0-.6-.37-1.43-1.2-.72-.72-1.04-.82-1.22-.82-.25 0-.32.07-.32.42v1.1c0 .3-.1.48-1.13.48-1.66 0-3.5-.98-4.8-2.8-1.94-2.64-2.47-4.62-2.47-5.02 0-.18.07-.35.42-.35h1.4c.32 0 .44.15.56.5.65 1.88 1.74 3.52 2.19 3.52.17 0 .24-.08.24-.5v-1.94c-.06-.98-.58-1.06-.58-1.41 0-.15.13-.3.33-.3h2.2c.27 0 .37.15.37.47v2.62c0 .27.13.37.2.37.17 0 .31-.1.62-.41 1-.1 1.71-2.55 1.71-2.55.09-.2.24-.35.56-.35h1.4c.33 0 .41.17.33.47-.15.72-.73 1.76-1.5 2.88-.14.2-.18.3 0 .52.13.17.59.58 1 1.07.58.7 1.03 1.29 1.15 1.7.12.4-.09.6-.49.6z"/>
+                    </svg>
+                  </div>
+                  <span className="text-sm">ВКонтакте</span>
+                </a>
+
+                <a 
+                  href="https://t.me/lime_chain" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex flex-col items-center gap-2 hover:text-primary transition-colors group"
+                >
+                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                    <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
+                    </svg>
+                  </div>
+                  <span className="text-sm">Telegram</span>
+                </a>
+
+                <a 
+                  href="https://dzen.ru/lime_chain" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex flex-col items-center gap-2 hover:text-primary transition-colors group"
+                >
+                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                    <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+                    </svg>
+                  </div>
+                  <span className="text-sm">Дзен</span>
+                </a>
+              </div>
+            </CardHeader>
+          </Card>
         </div>
       </section>
 
