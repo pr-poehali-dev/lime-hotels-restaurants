@@ -1035,7 +1035,7 @@ const Index = () => {
               <CardTitle className="mb-4">Мы в социальных сетях</CardTitle>
               <div className="flex justify-center gap-6">
                 <a 
-                  href="https://vk.com/lime_chain" 
+                  href="https://vk.com/lime_hotel_restaurant" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="flex flex-col items-center gap-2 hover:text-primary transition-colors group"
@@ -1049,7 +1049,7 @@ const Index = () => {
                 </a>
 
                 <a 
-                  href="https://t.me/lime_chain" 
+                  href="https://t.me/+HTQRo97Hf7Q3ZGEy" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="flex flex-col items-center gap-2 hover:text-primary transition-colors group"
