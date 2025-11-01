@@ -38,6 +38,7 @@ const Index = () => {
   const [selectedRoom, setSelectedRoom] = useState<Room | null>(null);
   const [selectedMenuItem, setSelectedMenuItem] = useState<MenuItem | null>(null);
   const [bookingDate, setBookingDate] = useState<Date>();
+  const [showBookingDialog, setShowBookingDialog] = useState(false);
 
   const handleBooking = (type: 'hotel' | 'restaurant') => {
     toast({
@@ -57,6 +58,38 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Dialog open={showBookingDialog} onOpenChange={setShowBookingDialog}>
+        <DialogContent className="max-w-md">
+          <DialogHeader>
+            <DialogTitle className="text-2xl">Что хотите забронировать?</DialogTitle>
+          </DialogHeader>
+          <div className="grid gap-4 py-4">
+            <Button 
+              size="lg" 
+              className="h-auto py-6 flex flex-col gap-2"
+              onClick={() => {
+                setShowBookingDialog(false);
+                scrollToSection('hotels');
+              }}
+            >
+              <Icon name="Hotel" className="w-8 h-8" />
+              <span className="text-lg">Номер в гостинице</span>
+            </Button>
+            <Button 
+              size="lg" 
+              variant="outline"
+              className="h-auto py-6 flex flex-col gap-2"
+              onClick={() => {
+                setShowBookingDialog(false);
+                scrollToSection('restaurants');
+              }}
+            >
+              <Icon name="UtensilsCrossed" className="w-8 h-8" />
+              <span className="text-lg">Столик в ресторане</span>
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
       <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b border-border z-50">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
@@ -99,7 +132,7 @@ const Index = () => {
                 Контакты
               </button>
             </div>
-            <Button size="sm" onClick={() => scrollToSection('hotels')}>
+            <Button size="sm" onClick={() => setShowBookingDialog(true)}>
               Забронировать
             </Button>
           </div>
