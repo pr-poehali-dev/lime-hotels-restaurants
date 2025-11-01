@@ -142,7 +142,7 @@ const Hotels = () => {
             <p className="text-lg text-muted-foreground">Выберите идеальный номер для вашего отдыха</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
             {rooms.map((room, index) => (
               <Card key={index} className="overflow-hidden hover:shadow-xl transition-all duration-300 hover:scale-105 animate-slide-in" style={{ animationDelay: `${index * 0.1}s` }}>
                 <div className="relative h-64 overflow-hidden">
