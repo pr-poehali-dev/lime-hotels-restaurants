@@ -37,13 +37,13 @@ const Restaurant = () => {
       <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b border-border z-50">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-2">
+            <Link to="/" className="flex items-center space-x-2 cursor-pointer hover:opacity-80 transition-opacity">
               <img 
                 src="https://cdn.poehali.dev/files/1b1431e4-2a8b-47e5-8bfa-20f013ab753a.jpg" 
                 alt="LIME" 
                 className="h-12 w-auto"
               />
-            </div>
+            </Link>
             <div className="hidden md:flex items-center space-x-8">
               <Link
                 to="/"
