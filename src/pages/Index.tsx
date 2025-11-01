@@ -174,7 +174,7 @@ const Index = () => {
             <p className="text-lg text-muted-foreground">Выберите идеальный номер для вашего отдыха</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
             {[
               {
                 title: 'Стандарт',
@@ -542,7 +542,7 @@ const Index = () => {
             <p className="text-lg text-muted-foreground">Всё для вашего комфорта и отдыха</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
                 icon: 'Waves',
@@ -642,7 +642,7 @@ const Index = () => {
           <div id="menu" className="mb-16">
             <h3 className="text-3xl font-bold text-center mb-8">Меню ресторана</h3>
             <Tabs defaultValue="salads" className="w-full">
-              <TabsList className="grid w-full grid-cols-4 lg:grid-cols-8 max-w-6xl mx-auto mb-8">
+              <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 lg:grid-cols-8 max-w-6xl mx-auto mb-8">
                 <TabsTrigger value="salads">Салаты</TabsTrigger>
                 <TabsTrigger value="soups">Супы</TabsTrigger>
                 <TabsTrigger value="appetizers">Закуски</TabsTrigger>

@@ -249,7 +249,7 @@ const Hotels = () => {
 
       <footer className="bg-muted py-12 px-4">
         <div className="container mx-auto max-w-6xl">
-          <div className="grid md:grid-cols-3 gap-8 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
             <div>
               <h3 className="font-bold text-lg mb-4">LIME</h3>
               <p className="text-muted-foreground">Сеть гостиниц и ресторанов премиум-класса</p>

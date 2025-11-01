@@ -100,7 +100,7 @@ const Restaurant = () => {
           <div id="menu" className="mb-16">
             <h3 className="text-3xl font-bold text-center mb-8">Меню ресторана</h3>
             <Tabs defaultValue="salads" className="w-full">
-              <TabsList className="grid w-full grid-cols-4 lg:grid-cols-8 max-w-6xl mx-auto mb-8">
+              <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 lg:grid-cols-8 max-w-6xl mx-auto mb-8">
                 <TabsTrigger value="salads">Салаты</TabsTrigger>
                 <TabsTrigger value="soups">Супы</TabsTrigger>
                 <TabsTrigger value="appetizers">Закуски</TabsTrigger>
