@@ -42,7 +42,7 @@ const Welcome = () => {
             <CardContent className="p-0">
               <div className="relative h-64 overflow-hidden">
                 <img 
-                  src="https://cdn.poehali.dev/files/ec1af49a-43c9-4caa-a7db-e1bda7ba253e.jpg"
+                  src="https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/f6bd07ef-c295-4de7-b42f-0d4636287bf5.jpg"
                   alt="Гостиницы"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
@@ -71,7 +71,7 @@ const Welcome = () => {
             <CardContent className="p-0">
               <div className="relative h-64 overflow-hidden">
                 <img 
-                  src="https://cdn.poehali.dev/files/4f5e7fa5-8e7e-455d-be54-4f07e9c3c6f0.jpg"
+                  src="https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/e6e34661-8523-485c-8c76-2f8982715ec6.jpg"
                   alt="Ресторан"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
