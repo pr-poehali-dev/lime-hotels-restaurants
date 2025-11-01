@@ -42,7 +42,7 @@ const Welcome = () => {
             <CardContent className="p-0">
               <div className="relative h-64 overflow-hidden">
                 <img 
-                  src="https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/f6bd07ef-c295-4de7-b42f-0d4636287bf5.jpg"
+                  src="https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/34be8ff0-176b-4e41-8266-daed90b01687.jpg"
                   alt="Гостиницы"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
