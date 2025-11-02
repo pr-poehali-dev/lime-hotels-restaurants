@@ -70,7 +70,7 @@ const Index = () => {
 
       <ServicesSection />
 
-      <RestaurantsSection onMenuItemSelect={setSelectedMenuItem} />
+      <RestaurantsSection />
 
       <ContactSection />
 
