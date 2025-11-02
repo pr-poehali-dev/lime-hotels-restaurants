@@ -9,16 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { format } from 'date-fns';
 import { ru } from 'date-fns/locale';
 import Icon from '@/components/ui/icon';
-
-interface Room {
-  title: string;
-  price: string;
-  description: string;
-  features: string[];
-  capacity: string;
-  image: string;
-  gallery: string[];
-}
+import { Room } from '@/data/rooms';
 
 interface RoomBookingDialogProps {
   room: Room | null;

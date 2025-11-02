@@ -2,70 +2,13 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 import { Link } from 'react-router-dom';
-
-interface Room {
-  title: string;
-  price: string;
-  description: string;
-  features: string[];
-  capacity: string;
-  image: string;
-  gallery: string[];
-}
+import { rooms, Room } from '@/data/rooms';
 
 interface HotelsSectionProps {
   onRoomSelect: (room: Room) => void;
 }
 
 export const HotelsSection = ({ onRoomSelect }: HotelsSectionProps) => {
-  const rooms: Room[] = [
-    {
-      title: 'Стандарт',
-      price: '3 500 ₽',
-      description: 'Уютный номер с видом на город',
-      features: ['Двуспальная кровать', 'Wi-Fi', 'Завтрак включен', 'Кондиционер'],
-      capacity: '2 гостя',
-      image: 'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/de6486ae-3846-4cfb-9b04-6e28150f5dd2.jpg',
-      gallery: [
-        'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/de6486ae-3846-4cfb-9b04-6e28150f5dd2.jpg',
-        'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/e7b91b19-0723-426a-871b-3a1cd66c953d.jpg',
-        'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/ce202ec6-8158-4171-95e0-96bcbe7acb85.jpg',
-      ],
-    },
-    {
-      title: 'Комфорт',
-      price: '5 500 ₽',
-      description: 'Просторный номер повышенной комфортности',
-      features: ['Кровать king-size', 'Wi-Fi', 'Завтрак включен', 'Мини-бар', 'Балкон'],
-      capacity: '2 гостя',
-      image: 'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/498be285-5a89-4849-a95e-45ccb0e196ef.jpg',
-      gallery: [
-        'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/498be285-5a89-4849-a95e-45ccb0e196ef.jpg',
-        'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/82121ba4-699c-46a0-846e-cd7e7832954a.jpg',
-        'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/a3326c17-65ba-4685-90be-7c0950649e07.jpg',
-        'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/066ddcb4-f63e-4221-a02b-baa2bbf0a812.jpg',
-        'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/c4c909f8-626f-4bf8-a2d4-4b89ba5e849f.jpg',
-        'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/d79f4c25-e48c-48fa-a887-e0c1325e3dd4.jpg',
-        'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/4fb88e9e-13a7-4315-94ec-5625e58b6cc9.jpg',
-        'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/58b74833-9086-47a7-974a-3142815b2b29.jpg',
-        'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/b9f4b14b-06b6-4bba-a89c-2aeee67cd28d.jpg',
-        'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/e7ed255b-2bc1-425e-853b-dbe70fd3d8a1.jpg',
-      ],
-    },
-    {
-      title: 'Семейный',
-      price: '8 500 ₽',
-      description: 'Большой номер для всей семьи',
-      features: ['2 спальни', 'Wi-Fi', 'Завтрак включен', 'Гостиная зона', 'Кухня'],
-      capacity: '4 гостя',
-      image: 'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/e7b91b19-0723-426a-871b-3a1cd66c953d.jpg',
-      gallery: [
-        'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/e7b91b19-0723-426a-871b-3a1cd66c953d.jpg',
-        'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/de6486ae-3846-4cfb-9b04-6e28150f5dd2.jpg',
-        'https://cdn.poehali.dev/projects/5e176038-af56-4ebf-924f-39eae234216c/files/ce202ec6-8158-4171-95e0-96bcbe7acb85.jpg',
-      ],
-    },
-  ];
 
   return (
     <section id="hotels" className="py-16 px-4 bg-muted/30">

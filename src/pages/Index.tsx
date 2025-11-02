@@ -9,30 +9,12 @@ import { RestaurantsSection } from '@/components/RestaurantsSection';
 import { ContactSection } from '@/components/ContactSection';
 import { FooterSection } from '@/components/FooterSection';
 import { RoomBookingDialog } from '@/components/RoomBookingDialog';
-
-interface Room {
-  title: string;
-  price: string;
-  description: string;
-  features: string[];
-  capacity: string;
-  image: string;
-  gallery: string[];
-}
-
-interface MenuItem {
-  name: string;
-  description: string;
-  price: string;
-  image: string;
-  category: string;
-}
+import { Room } from '@/data/rooms';
 
 const Index = () => {
   const { toast } = useToast();
   const [activeSection, setActiveSection] = useState('hero');
   const [selectedRoom, setSelectedRoom] = useState<Room | null>(null);
-  const [selectedMenuItem, setSelectedMenuItem] = useState<MenuItem | null>(null);
   const [showBookingDialog, setShowBookingDialog] = useState(false);
 
   const handleBooking = (type: 'hotel' | 'restaurant') => {
