@@ -13,11 +13,13 @@ import { ru } from 'date-fns/locale';
 import Icon from '@/components/ui/icon';
 import { Link } from 'react-router-dom';
 import { rooms, Room } from '@/data/rooms';
+import { RoomDetailsDialog } from '@/components/RoomDetailsDialog';
 
 const Hotels = () => {
   const [date, setDate] = useState<Date>();
   const { toast } = useToast();
   const [selectedRoom, setSelectedRoom] = useState<Room | null>(null);
+  const [roomToBook, setRoomToBook] = useState<Room | null>(null);
   const [bookingDate, setBookingDate] = useState<Date>();
 
   const handleBooking = () => {
@@ -25,7 +27,12 @@ const Hotels = () => {
       title: 'Бронирование отправлено',
       description: 'Мы свяжемся с вами в ближайшее время для подтверждения номера.',
     });
+    setRoomToBook(null);
+  };
+
+  const handleRoomBook = (room: Room) => {
     setSelectedRoom(null);
+    setRoomToBook(room);
   };
 
   const scrollToSection = (sectionId: string) => {
@@ -117,12 +124,21 @@ const Hotels = () => {
                       </li>
                     ))}
                   </ul>
-                  <Button 
-                    className="w-full" 
-                    onClick={() => setSelectedRoom(room)}
-                  >
-                    Забронировать
-                  </Button>
+                  <div className="flex gap-2">
+                    <Button 
+                      className="flex-1" 
+                      variant="outline"
+                      onClick={() => setSelectedRoom(room)}
+                    >
+                      Подробнее
+                    </Button>
+                    <Button 
+                      className="flex-1" 
+                      onClick={() => handleRoomBook(room)}
+                    >
+                      Забронировать
+                    </Button>
+                  </div>
                 </CardContent>
               </Card>
             ))}
@@ -225,19 +241,25 @@ const Hotels = () => {
         </div>
       </footer>
 
-      <Dialog open={!!selectedRoom} onOpenChange={() => setSelectedRoom(null)}>
+      <RoomDetailsDialog
+        room={selectedRoom}
+        onClose={() => setSelectedRoom(null)}
+        onBook={handleRoomBook}
+      />
+
+      <Dialog open={!!roomToBook} onOpenChange={() => setRoomToBook(null)}>
         <DialogContent className="sm:max-w-[600px]">
           <DialogHeader>
-            <DialogTitle>Бронирование номера {selectedRoom?.title}</DialogTitle>
+            <DialogTitle>Бронирование номера {roomToBook?.title}</DialogTitle>
           </DialogHeader>
-          {selectedRoom && (
+          {roomToBook && (
             <div className="grid gap-6 py-4">
               <div className="grid grid-cols-2 gap-4">
-                {selectedRoom.gallery.slice(0, 4).map((img, idx) => (
+                {roomToBook.gallery.slice(0, 4).map((img, idx) => (
                   <img 
                     key={idx}
                     src={img} 
-                    alt={`${selectedRoom.title} ${idx + 1}`}
+                    alt={`${roomToBook.title} ${idx + 1}`}
                     className="w-full h-32 object-cover rounded-lg"
                   />
                 ))}
@@ -298,7 +320,7 @@ const Hotels = () => {
               <div className="flex items-center justify-between pt-4 border-t">
                 <div>
                   <p className="text-sm text-muted-foreground">Цена за ночь</p>
-                  <p className="text-2xl font-bold text-primary">{selectedRoom.price}</p>
+                  <p className="text-2xl font-bold text-primary">{roomToBook.price}</p>
                 </div>
                 <Button onClick={handleBooking}>
                   Подтвердить бронирование

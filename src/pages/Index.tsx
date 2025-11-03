@@ -9,12 +9,14 @@ import { RestaurantsSection } from '@/components/RestaurantsSection';
 import { ContactSection } from '@/components/ContactSection';
 import { FooterSection } from '@/components/FooterSection';
 import { RoomBookingDialog } from '@/components/RoomBookingDialog';
+import { RoomDetailsDialog } from '@/components/RoomDetailsDialog';
 import { Room } from '@/data/rooms';
 
 const Index = () => {
   const { toast } = useToast();
   const [activeSection, setActiveSection] = useState('hero');
   const [selectedRoom, setSelectedRoom] = useState<Room | null>(null);
+  const [roomToBook, setRoomToBook] = useState<Room | null>(null);
   const [showBookingDialog, setShowBookingDialog] = useState(false);
 
   const handleBooking = (type: 'hotel' | 'restaurant') => {
@@ -22,7 +24,12 @@ const Index = () => {
       title: 'Бронирование отправлено',
       description: `Мы свяжемся с вами в ближайшее время для подтверждения ${type === 'hotel' ? 'номера' : 'столика'}.`,
     });
+    setRoomToBook(null);
+  };
+
+  const handleRoomBook = (room: Room) => {
     setSelectedRoom(null);
+    setRoomToBook(room);
   };
 
   const scrollToSection = (sectionId: string) => {
@@ -58,9 +65,15 @@ const Index = () => {
 
       <FooterSection onNavigate={scrollToSection} />
 
-      <RoomBookingDialog
+      <RoomDetailsDialog
         room={selectedRoom}
         onClose={() => setSelectedRoom(null)}
+        onBook={handleRoomBook}
+      />
+
+      <RoomBookingDialog
+        room={roomToBook}
+        onClose={() => setRoomToBook(null)}
         onConfirm={() => handleBooking('hotel')}
       />
     </div>

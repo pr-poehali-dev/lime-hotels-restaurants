@@ -48,8 +48,8 @@ export const HotelsSection = ({ onRoomSelect }: HotelsSectionProps) => {
                     </div>
                   ))}
                 </div>
-                <Button className="w-full" onClick={() => onRoomSelect(room)}>
-                  Забронировать
+                <Button className="w-full" variant="outline" onClick={() => onRoomSelect(room)}>
+                  Подробнее о номере
                 </Button>
               </CardContent>
             </Card>
