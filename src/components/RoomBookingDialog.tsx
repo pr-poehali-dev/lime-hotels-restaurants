@@ -20,6 +20,53 @@ interface RoomBookingDialogProps {
 export const RoomBookingDialog = ({ room, onClose, onConfirm }: RoomBookingDialogProps) => {
   const [bookingDate, setBookingDate] = useState<Date>();
   const [selectedImage, setSelectedImage] = useState(0);
+  const [nights, setNights] = useState('1');
+  const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [email, setEmail] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async () => {
+    if (!bookingDate || !name || !phone || !email) {
+      alert('Пожалуйста, заполните все поля');
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch('https://functions.poehali.dev/41ecc4b7-c6b2-4a37-bb54-91b827d577a6', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          room_title: room?.title,
+          room_price: room?.price,
+          guest_name: name,
+          guest_phone: phone,
+          guest_email: email,
+          checkin_date: format(bookingDate, 'yyyy-MM-dd'),
+          nights: parseInt(nights)
+        })
+      });
+
+      if (response.ok) {
+        onConfirm();
+        setName('');
+        setPhone('');
+        setEmail('');
+        setBookingDate(undefined);
+        setNights('1');
+      } else {
+        alert('Ошибка при бронировании. Попробуйте еще раз.');
+      }
+    } catch (error) {
+      alert('Ошибка при бронировании. Попробуйте еще раз.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   if (!room) return null;
 
@@ -100,37 +147,40 @@ export const RoomBookingDialog = ({ room, onClose, onConfirm }: RoomBookingDialo
               </div>
 
               <div>
-                <Label htmlFor="guests">Количество гостей</Label>
-                <Select>
-                  <SelectTrigger id="guests" className="mt-1">
+                <Label htmlFor="nights">Количество ночей</Label>
+                <Select value={nights} onValueChange={setNights}>
+                  <SelectTrigger id="nights" className="mt-1">
                     <SelectValue placeholder="Выберите количество" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="1">1 гость</SelectItem>
-                    <SelectItem value="2">2 гостя</SelectItem>
-                    <SelectItem value="3">3 гостя</SelectItem>
-                    <SelectItem value="4">4 гостя</SelectItem>
+                    <SelectItem value="1">1 ночь</SelectItem>
+                    <SelectItem value="2">2 ночи</SelectItem>
+                    <SelectItem value="3">3 ночи</SelectItem>
+                    <SelectItem value="4">4 ночи</SelectItem>
+                    <SelectItem value="5">5 ночей</SelectItem>
+                    <SelectItem value="6">6 ночей</SelectItem>
+                    <SelectItem value="7">7 ночей</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
 
               <div>
                 <Label htmlFor="name">Имя</Label>
-                <Input id="name" placeholder="Ваше имя" className="mt-1" />
+                <Input id="name" value={name} onChange={(e) => setName(e.target.value)} placeholder="Ваше имя" className="mt-1" />
               </div>
 
               <div>
                 <Label htmlFor="phone">Телефон</Label>
-                <Input id="phone" type="tel" placeholder="+7 (___) ___-__-__" className="mt-1" />
+                <Input id="phone" type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="+7 (___) ___-__-__" className="mt-1" />
               </div>
 
               <div>
                 <Label htmlFor="email">Email</Label>
-                <Input id="email" type="email" placeholder="your@email.com" className="mt-1" />
+                <Input id="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="your@email.com" className="mt-1" />
               </div>
 
-              <Button className="w-full" size="lg" onClick={onConfirm}>
-                Забронировать
+              <Button className="w-full" size="lg" onClick={handleSubmit} disabled={isSubmitting}>
+                {isSubmitting ? 'Отправка...' : 'Забронировать'}
               </Button>
             </div>
           </div>

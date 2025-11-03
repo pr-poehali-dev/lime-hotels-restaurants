@@ -1,0 +1,34 @@
+{
+  "tests": [
+    {
+      "name": "Create booking",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "room_title": "Стандарт",
+        "room_price": "3 500 ₽",
+        "guest_name": "Иван Иванов",
+        "guest_phone": "+7 999 123-45-67",
+        "guest_email": "ivan@example.com",
+        "checkin_date": "2024-12-01",
+        "nights": 3
+      },
+      "expectedStatus": 201,
+      "expectedBody": {
+        "success": true,
+        "booking_id": "number"
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Get all bookings",
+      "method": "GET",
+      "path": "/",
+      "expectedStatus": 200,
+      "expectedBody": {
+        "bookings": "array"
+      },
+      "bodyMatcher": "partial"
+    }
+  ]
+}
